@@ -1,0 +1,112 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.8.RELEASE</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>cwowhappy.study</groupId>
+    <artifactId>study-spring-cloud</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>study-spring-boot</module>
+        <module>study-spring-cloud-eureka</module>
+    </modules>
+
+    <repositories>
+        <repository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.build.sourceJDK>1.8</project.build.sourceJDK>
+        <project.build.targetJDK>1.8</project.build.targetJDK>
+
+        <dependency.version.spring-boot>1.5.8.RELEASE</dependency.version.spring-boot>
+        <dependency.version.jackson>2.8.10</dependency.version.jackson>
+
+        <plugin.version.compiler>3.7.0</plugin.version.compiler>
+        <plugin.version.resources>3.0.2</plugin.version.resources>
+    </properties>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${project.build.sourceJDK}</source>
+                    <target>${project.build.targetJDK}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${plugin.version.compiler}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>${plugin.version.resources}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${dependency.version.spring-boot}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Dalston.RC1</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-logging</artifactId>
+                <version>${dependency.version.spring-boot}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-actuator</artifactId>
+                <version>${dependency.version.spring-boot}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.datatype</groupId>
+                <artifactId>jackson-datatype-jsr310</artifactId>
+                <version>${dependency.version.jackson}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>
