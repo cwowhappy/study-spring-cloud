@@ -1,11 +1,16 @@
 server:
   port: @eureka.service.config.client.port@
 
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://@eureka.server.host@:@eureka.server.port@/eureka
+
 spring:
   application:
     name: @eureka.service.config.client.name@
   cloud:
     config:
-      uri: http://localhost:@eureka.service.config.server.port@/
+      uri: http://@eureka.service.config.server.name@/
       label: master
-      profile:
+      profile: dev
