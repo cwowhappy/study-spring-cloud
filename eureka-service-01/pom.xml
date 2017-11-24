@@ -27,4 +27,52 @@
             <artifactId>jackson-datatype-jsr310</artifactId>
         </dependency>
     </dependencies>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <build>
+                <filters>
+                    <filter>../profiles/config-common-dev.properties</filter>
+                </filters>
+            </build>
+            <properties>
+                <service.port>10080</service.port>
+            </properties>
+        </profile>
+        <profile>
+            <id>dev-inst-01</id>
+            <build>
+                <filters>
+                    <filter>../profiles/config-common-dev.properties</filter>
+                </filters>
+            </build>
+            <properties>
+                <service.port>10081</service.port>
+            </properties>
+        </profile>
+        <profile>
+            <id>dev-inst-02</id>
+            <build>
+                <filters>
+                    <filter>../profiles/config-common-dev.properties</filter>
+                </filters>
+            </build>
+            <properties>
+                <service.port>10082</service.port>
+            </properties>
+        </profile>
+    </profiles>
 </project>

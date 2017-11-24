@@ -16,4 +16,28 @@
             <artifactId>spring-cloud-starter-eureka-server</artifactId>
         </dependency>
     </dependencies>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <build>
+                <filters>
+                    <filter>../profiles/config-common-dev.properties</filter>
+                    <filter>../profiles/config-server-dev.properties</filter>
+                </filters>
+            </build>
+        </profile>
+    </profiles>
 </project>

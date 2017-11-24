@@ -1,0 +1,11 @@
+server:
+  port: @eureka.service.config.client.port@
+
+spring:
+  application:
+    name: @eureka.service.config.client.name@
+  cloud:
+    config:
+      uri: http://localhost:@eureka.service.config.server.port@/
+      label: master
+      profile:

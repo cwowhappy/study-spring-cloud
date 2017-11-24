@@ -1,11 +1,16 @@
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka
+      defaultZone: http://@eureka.server.host@:@eureka.server.port@/eureka
 
 server:
-  port: 8091
+  port: @eureka.service.ribbon.port@
 
 spring:
   application:
-    name: service-ribbon
+    name: @eureka.service.ribbon.name@
+
+
+services:
+  service-01:
+    name: @eureka.service.01.name@

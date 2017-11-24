@@ -42,7 +42,7 @@
             </activation>
             <build>
                 <filters>
-                    <filter>../profiles/config-server-dev.properties</filter>
+                    <filter>../profiles/config-common-dev.properties</filter>
                 </filters>
             </build>
         </profile>

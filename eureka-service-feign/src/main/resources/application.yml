@@ -1,11 +1,16 @@
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka
+      defaultZone: http://@eureka.server.host@:@eureka.server.port@/eureka
 
 server:
-  port: 8092
+  port: @eureka.service.feign.port@
 
 spring:
   application:
-    name: service-feign
+    name: @eureka.service.feign.name@
+
+
+services:
+  service-01:
+    name: @eureka.service.01.name@

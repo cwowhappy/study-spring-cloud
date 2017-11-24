@@ -1,9 +1,9 @@
 server:
-  port: @server.port@
+  port: @eureka.service.config.server.port@
 
 spring:
   application:
-    name: @spring.application.name@
+    name: @eureka.service.config.server.name@
   cloud:
     config:
       label: master
