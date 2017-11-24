@@ -1,0 +1,13 @@
+server:
+  port: @server.port@
+
+spring:
+  application:
+    name: @spring.application.name@
+  cloud:
+    config:
+      label: master
+      server:
+        git:
+          uri: https://github.com/cwowhappy/study-spring-cloud
+          searchPaths: profiles

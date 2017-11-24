@@ -15,8 +15,13 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>study-spring-boot</module>
-        <module>study-spring-cloud-eureka</module>
+        <module>eureka-server</module>
+        <module>eureka-service-01</module>
+        <module>eureka-service-ribbon</module>
+        <module>eureka-service-feign</module>
+        <module>eureka-service-zuul</module>
+        <module>eureka-config-server</module>
+        <module>eureka-config-client</module>
     </modules>
 
     <repositories>
@@ -32,8 +37,8 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.build.sourceJDK>1.8</project.build.sourceJDK>
-        <project.build.targetJDK>1.8</project.build.targetJDK>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
 
         <dependency.version.spring-boot>1.5.8.RELEASE</dependency.version.spring-boot>
         <dependency.version.jackson>2.8.10</dependency.version.jackson>
@@ -42,21 +47,16 @@
         <plugin.version.resources>3.0.2</plugin.version.resources>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
     <build>
         <plugins>
-            <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>${project.build.sourceJDK}</source>
-                    <target>${project.build.targetJDK}</target>
-                    <encoding>${project.build.sourceEncoding}</encoding>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
-            </plugin>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
@@ -91,16 +91,6 @@
                 <version>Dalston.RC1</version>
                 <type>pom</type>
                 <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-logging</artifactId>
-                <version>${dependency.version.spring-boot}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-actuator</artifactId>
-                <version>${dependency.version.spring-boot}</version>
             </dependency>
             <dependency>
                 <groupId>com.fasterxml.jackson.datatype</groupId>
