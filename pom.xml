@@ -23,6 +23,7 @@
         <module>eureka-config-server</module>
         <module>eureka-config-client</module>
         <module>service</module>
+        <module>study-spring-cloud-component</module>
     </modules>
 
     <repositories>
@@ -42,11 +43,11 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
 
-        <dependency.version.spring-boot>1.5.8.RELEASE</dependency.version.spring-boot>
         <dependency.version.jackson>2.8.10</dependency.version.jackson>
 
         <plugin.version.compiler>3.7.0</plugin.version.compiler>
         <plugin.version.resources>3.0.2</plugin.version.resources>
+        <plugin.version.spring-boot>2.0.0.RELEASE</plugin.version.spring-boot>
     </properties>
 
     <dependencies>
@@ -79,7 +80,7 @@
                 <plugin>
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-maven-plugin</artifactId>
-                    <version>${dependency.version.spring-boot}</version>
+                    <version>${plugin.version.spring-boot}</version>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -90,7 +91,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Dalston.RC1</version>
+                <version>Finchley.M7</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

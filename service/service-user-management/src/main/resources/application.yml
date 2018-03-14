@@ -5,6 +5,8 @@ spring:
   application:
     name: user-management
   datasource:
+    platform: h2
+    continue-on-error: true
     schema: classpath:database/schema.sql
     data: classpath:database/data.sql
     druid:
